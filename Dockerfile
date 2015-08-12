@@ -1,5 +1,5 @@
 # Use Microsoft aspnet image as our base
-FROM microsoft/aspnet:1.0.0-beta5
+FROM microsoft/aspnet
 
 #Copy all files to the /app directory (must contain a project.json)
 COPY . /app
