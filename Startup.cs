@@ -1,19 +1,22 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
-using Microsoft.AspNet.Http;
-using Microsoft.AspNet.Routing;
 using Microsoft.Framework.DependencyInjection;
+using Microsoft.Framework.Configuration;
+
 
 namespace TCub
 {
     public class Startup
     {
+        //public IConfiguration Configuration { get; set; }
+
         public Startup(IHostingEnvironment env)
         {
+            //var configuration = new ConfigurationBuilder(env.WebRootPath)
+            //    .AddJsonFile("config.json")
+            //    .AddEnvironmentVariables();
+
+            //Configuration = configuration.Build();
         }
 
         // This method gets called by a runtime.
@@ -24,11 +27,18 @@ namespace TCub
             // Uncomment the following line to add Web API services which makes it easier to port Web API 2 controllers.
             // You will also need to add the Microsoft.AspNet.Mvc.WebApiCompatShim package to the 'dependencies' section of project.json.
             // services.AddWebApiConventions();
+
+           // services.AddSingleton(_ => Configuration);
         }
 
         // Configure is called after ConfigureServices is called.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+
+            //http://www.mikesdotnetting.com/article/269/ac
+            //app.UseInstagramMiddleware();
+
+
             // Configure the HTTP request pipeline.
             app.UseStaticFiles();
 

@@ -949,6 +949,41 @@
           "lib/dnx451/Microsoft.Framework.Configuration.Ini.dll": {}
         }
       },
+      "Microsoft.Framework.Configuration.Json/1.0.0-beta6": {
+        "dependencies": {
+          "Microsoft.Framework.Configuration": "1.0.0-beta6",
+          "Newtonsoft.Json": "6.0.6"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Framework.Configuration.Json.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Framework.Configuration.Json.dll": {}
+        }
+      },
+      "Microsoft.Framework.Configuration.UserSecrets/1.0.0-beta6": {
+        "dependencies": {
+          "Microsoft.Framework.Configuration.Json": "1.0.0-beta6"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Framework.Configuration.UserSecrets.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Framework.Configuration.UserSecrets.dll": {}
+        }
+      },
       "Microsoft.Framework.DependencyInjection/1.0.0-beta6": {
         "dependencies": {
           "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta6"
@@ -2102,6 +2137,32 @@
           "lib/dotnet/Microsoft.Framework.Configuration.Ini.dll": {}
         }
       },
+      "Microsoft.Framework.Configuration.Json/1.0.0-beta6": {
+        "dependencies": {
+          "Microsoft.Framework.Configuration": "1.0.0-beta6",
+          "Newtonsoft.Json": "6.0.6",
+          "System.Dynamic.Runtime": "4.0.10-beta-23109"
+        },
+        "compile": {
+          "lib/dotnet/Microsoft.Framework.Configuration.Json.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/Microsoft.Framework.Configuration.Json.dll": {}
+        }
+      },
+      "Microsoft.Framework.Configuration.UserSecrets/1.0.0-beta6": {
+        "dependencies": {
+          "Microsoft.Framework.Configuration.Json": "1.0.0-beta6",
+          "System.Runtime": "4.0.20-beta-23109",
+          "System.Runtime.Serialization.Primitives": "4.0.10-beta-23109"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Framework.Configuration.UserSecrets.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Framework.Configuration.UserSecrets.dll": {}
+        }
+      },
       "Microsoft.Framework.DependencyInjection/1.0.0-beta6": {
         "dependencies": {
           "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta6",
@@ -2681,15 +2742,28 @@
           "lib/DNXCore50/System.Diagnostics.Tracing.dll": {}
         }
       },
-      "System.Dynamic.Runtime/4.0.0-beta-23109": {
+      "System.Dynamic.Runtime/4.0.10-beta-23109": {
         "dependencies": {
-          "System.Linq.Expressions": "4.0.0-beta-23109",
+          "System.Collections": "4.0.0-beta-23109",
+          "System.Diagnostics.Debug": "4.0.0-beta-23109",
+          "System.Globalization": "4.0.0-beta-23109",
+          "System.Linq": "4.0.0-beta-23109",
+          "System.Linq.Expressions": "4.0.10-beta-23109",
           "System.ObjectModel": "4.0.0-beta-23109",
           "System.Reflection": "4.0.0-beta-23109",
-          "System.Runtime": "4.0.0-beta-23109"
+          "System.Reflection.Emit": "4.0.0-beta-23109",
+          "System.Reflection.Primitives": "4.0.0-beta-23109",
+          "System.Reflection.TypeExtensions": "4.0.0-beta-23109",
+          "System.Resources.ResourceManager": "4.0.0-beta-23109",
+          "System.Runtime": "4.0.20-beta-23109",
+          "System.Runtime.Extensions": "4.0.0-beta-23109",
+          "System.Threading": "4.0.0-beta-23109"
         },
         "compile": {
           "ref/dotnet/System.Dynamic.Runtime.dll": {}
+        },
+        "runtime": {
+          "lib/DNXCore50/System.Dynamic.Runtime.dll": {}
         }
       },
       "System.Globalization/4.0.10-beta-23109": {
@@ -3118,6 +3192,18 @@
         },
         "runtime": {
           "lib/dotnet/System.Runtime.Numerics.dll": {}
+        }
+      },
+      "System.Runtime.Serialization.Primitives/4.0.10-beta-23109": {
+        "dependencies": {
+          "System.Resources.ResourceManager": "4.0.0-beta-23109",
+          "System.Runtime": "4.0.20-beta-23109"
+        },
+        "compile": {
+          "ref/dotnet/System.Runtime.Serialization.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/System.Runtime.Serialization.Primitives.dll": {}
         }
       },
       "System.Security.Claims/4.0.0-beta-23109": {
@@ -4302,6 +4388,36 @@
         "repo.json"
       ]
     },
+    "Microsoft.Framework.Configuration.Json/1.0.0-beta6": {
+      "serviceable": true,
+      "sha512": "C4kdW1eP2e5d8pAK5iJ9EWHCpnDpBDO/lu22VjFfTekRTes2zCkpJRt3OYUyqmlg8emVHsGM/i8k6Y/oP6eeZg==",
+      "files": [
+        "lib/dnx451/Microsoft.Framework.Configuration.Json.dll",
+        "lib/dnx451/Microsoft.Framework.Configuration.Json.xml",
+        "lib/dotnet/Microsoft.Framework.Configuration.Json.dll",
+        "lib/dotnet/Microsoft.Framework.Configuration.Json.xml",
+        "lib/net45/Microsoft.Framework.Configuration.Json.dll",
+        "lib/net45/Microsoft.Framework.Configuration.Json.xml",
+        "Microsoft.Framework.Configuration.Json.1.0.0-beta6.nupkg",
+        "Microsoft.Framework.Configuration.Json.1.0.0-beta6.nupkg.sha512",
+        "Microsoft.Framework.Configuration.Json.nuspec",
+        "repo.json"
+      ]
+    },
+    "Microsoft.Framework.Configuration.UserSecrets/1.0.0-beta6": {
+      "serviceable": true,
+      "sha512": "RY6YQVlnWnBJWDQq/5gaAekB5u2X0lA/f+4VceJ+i2xhNgMFgWGRWZTJJPs/QnDAdEErtP2FbjjIWsy4b+LMQw==",
+      "files": [
+        "lib/dnx451/Microsoft.Framework.Configuration.UserSecrets.dll",
+        "lib/dnx451/Microsoft.Framework.Configuration.UserSecrets.xml",
+        "lib/dnxcore50/Microsoft.Framework.Configuration.UserSecrets.dll",
+        "lib/dnxcore50/Microsoft.Framework.Configuration.UserSecrets.xml",
+        "Microsoft.Framework.Configuration.UserSecrets.1.0.0-beta6.nupkg",
+        "Microsoft.Framework.Configuration.UserSecrets.1.0.0-beta6.nupkg.sha512",
+        "Microsoft.Framework.Configuration.UserSecrets.nuspec",
+        "repo.json"
+      ]
+    },
     "Microsoft.Framework.DependencyInjection/1.0.0-beta6": {
       "serviceable": true,
       "sha512": "Q0B1518nc1hxNzMMQ5Lk0dwwDwmVzkj20PpN0MwcOxF3zAd1llmaXNidf7Mb6cy8G1s25OZ46OiDnDvTbw8C7g==",
@@ -5009,14 +5125,13 @@
         "System.Diagnostics.Tracing.nuspec"
       ]
     },
-    "System.Dynamic.Runtime/4.0.0-beta-23109": {
-      "sha512": "nH2j/mWRcUME1Tz9tFXhf6zWGRVW5a5M+2bMG5GvudHv0SrbwfPGQBqwYCm5n1uQu68K1C59evXEq8BoMdXlcg==",
+    "System.Dynamic.Runtime/4.0.10-beta-23109": {
+      "serviceable": true,
+      "sha512": "u+HhRVqhMblXkyKZP1A8Y13AxzZhVC7wSNxgSvQ/2XeAA/OfDLYdUxuAT+KL13CNszaedzZxTOVZmZWpLmzFow==",
       "files": [
-        "lib/net45/_._",
-        "lib/win8/_._",
-        "lib/wp80/_._",
-        "lib/wpa81/_._",
-        "License.rtf",
+        "lib/DNXCore50/System.Dynamic.Runtime.dll",
+        "lib/net46/_._",
+        "lib/netcore50/System.Dynamic.Runtime.dll",
         "ref/dotnet/de/System.Dynamic.Runtime.xml",
         "ref/dotnet/es/System.Dynamic.Runtime.xml",
         "ref/dotnet/fr/System.Dynamic.Runtime.xml",
@@ -5028,23 +5143,11 @@
         "ref/dotnet/System.Dynamic.Runtime.xml",
         "ref/dotnet/zh-hans/System.Dynamic.Runtime.xml",
         "ref/dotnet/zh-hant/System.Dynamic.Runtime.xml",
-        "ref/net45/_._",
-        "ref/netcore50/de/System.Dynamic.Runtime.xml",
-        "ref/netcore50/es/System.Dynamic.Runtime.xml",
-        "ref/netcore50/fr/System.Dynamic.Runtime.xml",
-        "ref/netcore50/it/System.Dynamic.Runtime.xml",
-        "ref/netcore50/ja/System.Dynamic.Runtime.xml",
-        "ref/netcore50/ko/System.Dynamic.Runtime.xml",
-        "ref/netcore50/ru/System.Dynamic.Runtime.xml",
-        "ref/netcore50/System.Dynamic.Runtime.dll",
-        "ref/netcore50/System.Dynamic.Runtime.xml",
-        "ref/netcore50/zh-hans/System.Dynamic.Runtime.xml",
-        "ref/netcore50/zh-hant/System.Dynamic.Runtime.xml",
-        "ref/win8/_._",
-        "ref/wp80/_._",
-        "ref/wpa81/_._",
-        "System.Dynamic.Runtime.4.0.0-beta-23109.nupkg",
-        "System.Dynamic.Runtime.4.0.0-beta-23109.nupkg.sha512",
+        "ref/net46/_._",
+        "runtime.json",
+        "runtimes/win8-aot/lib/netcore50/System.Dynamic.Runtime.dll",
+        "System.Dynamic.Runtime.4.0.10-beta-23109.nupkg",
+        "System.Dynamic.Runtime.4.0.10-beta-23109.nupkg.sha512",
         "System.Dynamic.Runtime.nuspec"
       ]
     },
@@ -5777,6 +5880,29 @@
         "System.Runtime.Numerics.nuspec"
       ]
     },
+    "System.Runtime.Serialization.Primitives/4.0.10-beta-23109": {
+      "serviceable": true,
+      "sha512": "Tr4N2JNBj0sM+apa0tMBXTI0yg8wlrWsiDHFtuPFQL+yiutGCgS8fyUcAYNUp4HccsD6leGT8D1N8+0/eMJQSQ==",
+      "files": [
+        "lib/dotnet/System.Runtime.Serialization.Primitives.dll",
+        "lib/net46/_._",
+        "ref/dotnet/de/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/es/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/fr/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/it/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/ja/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/ko/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/ru/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/System.Runtime.Serialization.Primitives.dll",
+        "ref/dotnet/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/zh-hans/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/zh-hant/System.Runtime.Serialization.Primitives.xml",
+        "ref/net46/_._",
+        "System.Runtime.Serialization.Primitives.4.0.10-beta-23109.nupkg",
+        "System.Runtime.Serialization.Primitives.4.0.10-beta-23109.nupkg.sha512",
+        "System.Runtime.Serialization.Primitives.nuspec"
+      ]
+    },
     "System.Security.Claims/4.0.0-beta-23109": {
       "serviceable": true,
       "sha512": "6oI/9RzVy/6AVHRzuSm9oOOm3O/iS+pWDby0YTuepAtW7aT1VZiYbar0Nzi7wUJLIE+EuUWgGUgVQni0inIUSw==",
@@ -6364,7 +6490,11 @@
       "Microsoft.AspNet.Server.IIS >= 1.0.0-beta6",
       "Kestrel >= 1.0.0-beta6",
       "Microsoft.AspNet.Server.WebListener >= 1.0.0-beta6",
-      "Microsoft.AspNet.StaticFiles >= 1.0.0-beta6"
+      "Microsoft.AspNet.StaticFiles >= 1.0.0-beta6",
+      "Microsoft.Framework.Configuration.Abstractions >= 1.0.0-beta6",
+      "Microsoft.Framework.Configuration >= 1.0.0-beta6",
+      "Microsoft.Framework.Configuration.UserSecrets >= 1.0.0-beta6",
+      "Microsoft.Framework.Configuration.Binder >= 1.0.0-beta6"
     ],
     "DNX,Version=v4.5.1": [],
     "DNXCore,Version=v5.0": []
