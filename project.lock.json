@@ -6494,7 +6494,8 @@
       "Microsoft.Framework.Configuration.Abstractions >= 1.0.0-beta6",
       "Microsoft.Framework.Configuration >= 1.0.0-beta6",
       "Microsoft.Framework.Configuration.UserSecrets >= 1.0.0-beta6",
-      "Microsoft.Framework.Configuration.Binder >= 1.0.0-beta6"
+      "Microsoft.Framework.Configuration.Binder >= 1.0.0-beta6",
+      "Microsoft.Framework.Runtime.Abstractions >= 1.0.0-beta6"
     ],
     "DNX,Version=v4.5.1": [],
     "DNXCore,Version=v5.0": []

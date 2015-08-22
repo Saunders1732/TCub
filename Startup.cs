@@ -2,21 +2,20 @@ using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Configuration;
-
+using Microsoft.Framework.Runtime;
 
 namespace TCub
 {
     public class Startup
     {
-        //public IConfiguration Configuration { get; set; }
+        private readonly IConfiguration _configuration;
 
-        public Startup(IHostingEnvironment env)
+        public Startup(IApplicationEnvironment appEnv, IHostingEnvironment env)
         {
-            //var configuration = new ConfigurationBuilder(env.WebRootPath)
-            //    .AddJsonFile("config.json")
-            //    .AddEnvironmentVariables();
-
-            //Configuration = configuration.Build();
+            _configuration = new ConfigurationBuilder(appEnv.ApplicationBasePath)
+                .AddJsonFile("config.json")
+                .AddEnvironmentVariables()
+                .Build();
         }
 
         // This method gets called by a runtime.
