@@ -14,7 +14,8 @@ namespace TCub
         {
             _configuration = new ConfigurationBuilder(appEnv.ApplicationBasePath)
                 .AddJsonFile("config.json")
-                .AddEnvironmentVariables()
+                .AddUserSecrets()
+                .AddEnvironmentVariables()                
                 .Build();
         }
 

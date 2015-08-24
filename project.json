@@ -1,5 +1,6 @@
 {
     "webroot": "wwwroot",
+    "userSecretsId": "aspnet5-TCub-4F1BB27A-0D79-4746-80A4-E44D958C0DFF",                                   
     "version": "1.0.0-*",
 
     "dependencies": {
@@ -12,8 +13,8 @@
         "Microsoft.Framework.Configuration": "1.0.0-beta6",
         "Microsoft.Framework.Configuration.UserSecrets": "1.0.0-beta6",
         "Microsoft.Framework.Configuration.Binder": "1.0.0-beta6",
-      "Microsoft.Framework.Runtime.Abstractions": "1.0.0-beta6"
-     
+        "Microsoft.Framework.Runtime.Abstractions": "1.0.0-beta6",
+        "System.Runtime.Serialization.Primitives": "1.0.0-beta6"
     },
 
     "commands": {

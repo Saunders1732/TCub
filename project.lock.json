@@ -1905,16 +1905,15 @@
           "lib/dotnet/System.Runtime.Numerics.dll": {}
         }
       },
-      "System.Runtime.Serialization.Primitives/4.0.10-beta-23109": {
+      "System.Runtime.Serialization.Primitives/4.0.0-beta-22231": {
         "dependencies": {
-          "System.Resources.ResourceManager": "4.0.0-beta-23109",
-          "System.Runtime": "4.0.20-beta-23109"
+          "System.Runtime": "4.0.0-beta-22231"
         },
         "compile": {
-          "ref/dotnet/System.Runtime.Serialization.Primitives.dll": {}
+          "lib/contract/System.Runtime.Serialization.Primitives.dll": {}
         },
         "runtime": {
-          "lib/dotnet/System.Runtime.Serialization.Primitives.dll": {}
+          "lib/aspnetcore50/System.Runtime.Serialization.Primitives.dll": {}
         }
       },
       "System.Security.Claims/4.0.0-beta-23109": {
@@ -3577,6 +3576,19 @@
         },
         "runtime": {
           "lib/portable-net45+win8/System.Reflection.Metadata.dll": {}
+        }
+      },
+      "System.Runtime/4.0.0-beta-23019": {
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "System.Runtime.Serialization.Primitives/4.0.0-beta-22231": {
+        "dependencies": {
+          "System.Runtime": "4.0.0-beta-22231"
         }
       }
     }
@@ -5750,6 +5762,21 @@
         "System.Resources.ResourceManager.nuspec"
       ]
     },
+    "System.Runtime/4.0.0-beta-23019": {
+      "sha512": "BUB/5CSzjDRQlifthFztT1eWmnnb2QCK2WKd0kxAt8ytB+2oXiVqpSvcbtzRsidp8wGdG51fyolfiznodSIX9A==",
+      "files": [
+        "lib/net45/_._",
+        "lib/win8/_._",
+        "License.rtf",
+        "ref/dotnet/System.Runtime.dll",
+        "ref/net45/_._",
+        "ref/netcore50/System.Runtime.dll",
+        "ref/win8/_._",
+        "System.Runtime.4.0.0-beta-23019.nupkg",
+        "System.Runtime.4.0.0-beta-23019.nupkg.sha512",
+        "System.Runtime.nuspec"
+      ]
+    },
     "System.Runtime/4.0.20-beta-23109": {
       "serviceable": true,
       "sha512": "6usAb6nZEPKugl3z5JR/RZrouH5/340n3tM0lhRfxVE/k3B3Sfh/sHSPiAOorrZgGm4cIDDhXTCGJQSWYphu3g==",
@@ -5880,26 +5907,14 @@
         "System.Runtime.Numerics.nuspec"
       ]
     },
-    "System.Runtime.Serialization.Primitives/4.0.10-beta-23109": {
-      "serviceable": true,
-      "sha512": "Tr4N2JNBj0sM+apa0tMBXTI0yg8wlrWsiDHFtuPFQL+yiutGCgS8fyUcAYNUp4HccsD6leGT8D1N8+0/eMJQSQ==",
+    "System.Runtime.Serialization.Primitives/4.0.0-beta-22231": {
+      "sha512": "hJFSZsoe2D2hYzlaYSCsr9X1ZSaZjR8hWO4r0BczmJ8/sTs7UcRQMVAl3/n51Hk8khmVFxjAoWtsMPUWtCJ+4g==",
       "files": [
-        "lib/dotnet/System.Runtime.Serialization.Primitives.dll",
-        "lib/net46/_._",
-        "ref/dotnet/de/System.Runtime.Serialization.Primitives.xml",
-        "ref/dotnet/es/System.Runtime.Serialization.Primitives.xml",
-        "ref/dotnet/fr/System.Runtime.Serialization.Primitives.xml",
-        "ref/dotnet/it/System.Runtime.Serialization.Primitives.xml",
-        "ref/dotnet/ja/System.Runtime.Serialization.Primitives.xml",
-        "ref/dotnet/ko/System.Runtime.Serialization.Primitives.xml",
-        "ref/dotnet/ru/System.Runtime.Serialization.Primitives.xml",
-        "ref/dotnet/System.Runtime.Serialization.Primitives.dll",
-        "ref/dotnet/System.Runtime.Serialization.Primitives.xml",
-        "ref/dotnet/zh-hans/System.Runtime.Serialization.Primitives.xml",
-        "ref/dotnet/zh-hant/System.Runtime.Serialization.Primitives.xml",
-        "ref/net46/_._",
-        "System.Runtime.Serialization.Primitives.4.0.10-beta-23109.nupkg",
-        "System.Runtime.Serialization.Primitives.4.0.10-beta-23109.nupkg.sha512",
+        "lib/aspnetcore50/System.Runtime.Serialization.Primitives.dll",
+        "lib/contract/System.Runtime.Serialization.Primitives.dll",
+        "License.rtf",
+        "System.Runtime.Serialization.Primitives.4.0.0-beta-22231.nupkg",
+        "System.Runtime.Serialization.Primitives.4.0.0-beta-22231.nupkg.sha512",
         "System.Runtime.Serialization.Primitives.nuspec"
       ]
     },
@@ -6495,7 +6510,8 @@
       "Microsoft.Framework.Configuration >= 1.0.0-beta6",
       "Microsoft.Framework.Configuration.UserSecrets >= 1.0.0-beta6",
       "Microsoft.Framework.Configuration.Binder >= 1.0.0-beta6",
-      "Microsoft.Framework.Runtime.Abstractions >= 1.0.0-beta6"
+      "Microsoft.Framework.Runtime.Abstractions >= 1.0.0-beta6",
+      "System.Runtime.Serialization.Primitives >= 1.0.0-beta6"
     ],
     "DNXCore,Version=v5.0": [],
     "DNX,Version=v4.5.1": []

@@ -22,7 +22,8 @@ namespace TCub.Controllers
         [HttpGet("{id}")]
         public string Get(string id)
         {
-            string returnvalue = "default: " +  id;
+            
+            string returnvalue = string.Format("default: {0}", id);
             if(id.ToLower() == "register")
             {
                 returnvalue = "register";
