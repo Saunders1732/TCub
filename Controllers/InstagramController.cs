@@ -11,33 +11,39 @@ namespace TCub.Controllers
     [Route("api/[controller]")]
     public class InstagramController : Controller
     {
-        // GET: api/values
+        // GET: api/Instagram
         [HttpGet]
         public IEnumerable<string> Get()
         {
             return new string[] { "inst value1", "inst value2" };
         }
-
-        // GET api/values/5
+ 
+       // GET api/Instagram/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public string Get(string id)
         {
-            return "inst value";
+            string returnvalue = "default: " +  id;
+            if(id.ToLower() == "register")
+            {
+                returnvalue = "register";
+            }
+            return returnvalue;
         }
+       
 
-        // POST api/values
+        // POST api/Instagram
         [HttpPost]
         public void Post([FromBody]string value)
         {
         }
 
-        // PUT api/values/5
+        // PUT api/Instagram/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE api/values/5
+        // DELETE api/Instagram/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
