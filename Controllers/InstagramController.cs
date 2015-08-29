@@ -22,11 +22,16 @@ namespace TCub.Controllers
         [HttpGet("{id}")]
         public string Get(string id)
         {
-            
             string returnvalue = string.Format("default: {0}", id);
-            if(id.ToLower() == "register")
+            Models.InstagramModel thisModel = new Models.InstagramModel();
+            if (id.ToLower() == "register")
             {
-                returnvalue = "register";
+                returnvalue = thisModel.register(Context);
+            }
+            else if(id.ToLower() == "registerCallBack")
+            {
+                thisModel.registerCallback(Context);
+                returnvalue = string.Empty;
             }
             return returnvalue;
         }
@@ -48,6 +53,8 @@ namespace TCub.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            
+
         }
     }
 }

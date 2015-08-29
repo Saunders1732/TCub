@@ -1,4 +1,6 @@
+using System;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNet.Http;
 
 namespace TCub.Models
 {
@@ -35,10 +37,19 @@ If successful, this call will return a neatly packaged OAuth Token that you can 
 }
 Even though the access token does not specify an expiration time, your app should handle the case that either the user revokes access, or Instagram expires the token after some period of time. In this case, your meta of your responses will contain an “error_type=OAuthAccessTokenError”. In other words: do not assume your access_token is valid forever.
     */
-    public class InstagramModel
+    public class InstagramModel: ThirdPartyModelBase
     {
         public string Id { get; set; }
-        [Required]
-        public string register { get; set; }       
+
+         
+        public override String register(HttpContext context)
+        {
+            return base.register(context);
+        }
+
+        public override void registerCallback(HttpContext context)
+        {
+            base.registerCallback(context);
+        }
     }
 }
