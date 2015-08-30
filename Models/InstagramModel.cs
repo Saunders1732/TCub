@@ -40,10 +40,13 @@ Even though the access token does not specify an expiration time, your app shoul
     public class InstagramModel: ThirdPartyModelBase
     {
         public string Id { get; set; }
-
          
         public override String register(HttpContext context)
         {
+            //using (var httpClient = new HttpClient())
+            //{
+            //    var json = httpClient.GetStringAsync(url).Result;
+            //}
             return base.register(context);
         }
 

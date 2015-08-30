@@ -14,7 +14,8 @@
         "Microsoft.Framework.Configuration.UserSecrets": "1.0.0-beta6",
         "Microsoft.Framework.Configuration.Binder": "1.0.0-beta6",
         "Microsoft.Framework.Runtime.Abstractions": "1.0.0-beta6",
-        "System.Runtime.Serialization.Primitives": "4.0.10.0"
+      "System.Runtime.Serialization.Primitives": "4.0.10.0",
+      "System.Net.Http": "4.0.0"
     },
 
     "commands": {
