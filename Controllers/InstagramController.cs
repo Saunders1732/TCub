@@ -22,7 +22,7 @@ namespace TCub.Controllers
         [HttpGet("{id}")]
         public string Get(string id)
         {
-            string returnvalue = string.Format("default: {0}", id);
+            string returnvalue = string.Empty;
             Models.InstagramModel thisModel = new Models.InstagramModel();
             if (id.ToLower() == "register")
             {
@@ -31,7 +31,10 @@ namespace TCub.Controllers
             else if(id.ToLower() == "registerCallBack")
             {
                 thisModel.registerCallback(Context);
-                returnvalue = string.Empty;
+            }
+            else
+            {
+                returnvalue = "unhandled route";
             }
             return returnvalue;
         }
