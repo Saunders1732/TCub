@@ -8,16 +8,21 @@ namespace TCub.Models
 {
     public class ThirdPartyModelBase
     {
-        public virtual string register(HttpContext context)
+        private string _uri;
+
+        public virtual string Uri { get { return _uri; } }
+
+        public virtual Dictionary<string, string> RegisterParams { get; }
+
+        public virtual async void register(HttpContext context)
         {
-            return "";
+           
         }
 
 
         public virtual void registerCallback(HttpContext context)
         {
-
-            
+                        
         }
 
     }

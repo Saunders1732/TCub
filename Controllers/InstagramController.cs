@@ -26,7 +26,7 @@ namespace TCub.Controllers
             Models.InstagramModel thisModel = new Models.InstagramModel();
             if (id.ToLower() == "register")
             {
-                returnvalue = thisModel.register(Context);
+                thisModel.register(Context);
             }
             else if(id.ToLower() == "registerCallBack")
             {

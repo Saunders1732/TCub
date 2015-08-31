@@ -6773,18 +6773,18 @@
   },
   "projectFileDependencyGroups": {
     "": [
+      "Kestrel >= 1.0.0-beta6",
       "Microsoft.AspNet.Mvc >= 6.0.0-beta6",
       "Microsoft.AspNet.Server.IIS >= 1.0.0-beta6",
-      "Kestrel >= 1.0.0-beta6",
       "Microsoft.AspNet.Server.WebListener >= 1.0.0-beta6",
       "Microsoft.AspNet.StaticFiles >= 1.0.0-beta6",
-      "Microsoft.Framework.Configuration.Abstractions >= 1.0.0-beta6",
       "Microsoft.Framework.Configuration >= 1.0.0-beta6",
-      "Microsoft.Framework.Configuration.UserSecrets >= 1.0.0-beta6",
+      "Microsoft.Framework.Configuration.Abstractions >= 1.0.0-beta6",
       "Microsoft.Framework.Configuration.Binder >= 1.0.0-beta6",
+      "Microsoft.Framework.Configuration.UserSecrets >= 1.0.0-beta6",
       "Microsoft.Framework.Runtime.Abstractions >= 1.0.0-beta6",
-      "System.Runtime.Serialization.Primitives >= 4.0.10.0",
-      "System.Net.Http >= 4.0.0"
+      "System.Net.Http >= 4.0.0",
+      "System.Runtime.Serialization.Primitives >= 4.0.10.0"
     ],
     "DNX,Version=v4.6": [],
     "DNXCore,Version=v5.0": []

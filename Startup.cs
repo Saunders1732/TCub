@@ -8,11 +8,11 @@ namespace TCub
 {
     public class Startup
     {
-        public readonly IConfiguration Configuration;
+        public static IConfiguration configuration;
 
         public Startup(IApplicationEnvironment appEnv, IHostingEnvironment env)
         {
-            Configuration = new ConfigurationBuilder(appEnv.ApplicationBasePath)
+            configuration = new ConfigurationBuilder(appEnv.ApplicationBasePath)
                 .AddJsonFile("config.json")
                 .AddUserSecrets()
                 .AddEnvironmentVariables()                
