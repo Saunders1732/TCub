@@ -31,7 +31,7 @@ namespace TCub.Models
         internal static string HUB_VERIFY_TOKEN = "verify_token";
 
         internal const string BASE_URI = "Instagram.base_uri";
-
+        internal static string BASE_URI_VALUE = Startup.configuration[BASE_URI];        
         
         internal const string Error_CALLBACK_INVALID = "Invalid callback url";
         internal const string Error_Mode_Null = "Mode not provided";

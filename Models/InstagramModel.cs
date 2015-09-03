@@ -5,6 +5,7 @@ using Microsoft.AspNet.Http;
 using Microsoft.Net.Http;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace TCub.Models
 {
@@ -29,11 +30,14 @@ namespace TCub.Models
     public class InstagramModel: ThirdPartyModelBase
     {
        private Dictionary<string, string> _registerValues = null;
-        public override string Uri
-        {
-            get { return Startup.configuration[InstagramModelStrings.BASE_URI];   }
+        public override string Uri{get {return base.Uri;}}
+        
+        public string Id { get; set; }
+        
+        public InstagramModel(){
+            base._uri = InstagramModelStrings.BASE_URI_VALUE;
         }
-
+        
         public override Dictionary<string, string> RegisterParams
         {
             get
@@ -52,29 +56,12 @@ namespace TCub.Models
             }
         }
 
-        public override async void register(HttpContext context)
+        public override async Task<string> register(HttpContext context)
         {
-            using (var httpClient = new HttpClient())
-            {
-                try
-                {
-                    var responseMsg = await httpClient.PostAsync(
-                                                      this.Uri
-                                                    , new FormUrlEncodedContent(RegisterParams));
-                    if(responseMsg.StatusCode == HttpStatusCode.OK)
-                    {
-                        //json response is received when successful
-                    }
-                    else
-                    {
-                        //log error
-                    }
-                }
-                catch (OperationCanceledException)
-                {
-                    //log error
-                }                
-            }            
+              string returnvalue = string.Empty;
+              returnvalue = await base.register(context);
+              
+              return returnvalue;
         }
 
         public override void registerCallback(HttpContext context)
@@ -129,5 +116,6 @@ namespace TCub.Models
                //log Error
             }            
         }
+
     }
 }
