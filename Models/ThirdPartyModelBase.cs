@@ -55,9 +55,10 @@ namespace TCub.Models
         }
 
 
-        public virtual void registerCallback(HttpContext context)
+        public virtual string Callback(HttpContext context)
         {
-                        
+            //parse the message content for JSON data
+            return string.Empty;           
         }
 
     }

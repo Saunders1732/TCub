@@ -30,7 +30,7 @@ namespace TCub.Controllers
             }
             else if(id.ToLower() == "registerCallBack")
             {
-                thisModel.registerCallback(Context);
+                returnvalue = thisModel.Callback(Context);
             }
             else
             {
