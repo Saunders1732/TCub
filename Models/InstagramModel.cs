@@ -36,6 +36,7 @@ namespace TCub.Models
         
         public InstagramModel(){
             base._uri = InstagramModelStrings.BASE_URI_VALUE;
+            base._registerParams = RegisterParams;
         }
         
         public override Dictionary<string, string> RegisterParams
@@ -51,7 +52,6 @@ namespace TCub.Models
                     _registerValues.Add(InstagramModelStrings.VERIFY_TOKEN,     InstagramModelStrings.VERIFY_TOKEN_VALUE);
                     _registerValues.Add(InstagramModelStrings.CALLBACK_URL,     InstagramModelStrings.CALLBACK_URL_VALUE);
                 }
-
                 return _registerValues;
             }
         }
@@ -79,14 +79,15 @@ namespace TCub.Models
                 {  //This is a standard callback from an event notification
                    ResponseValue = base.Callback(context);   
                    
-                   ///TODO process instagram response JSON               
+                   ///TODO process instagram response JSON      
+                   // Send message to workflow         
                 }
                 else 
                 {   //This is a Register Callback
                     if (!registerCallbackHandler(out ResponseValue, context))
                     { 
                         Error = ResponseValue;
-                        //log Error
+                        ///TODO log Error
                     }  
                 }
             }
@@ -96,45 +97,78 @@ namespace TCub.Models
         
         private bool registerCallbackHandler(out string ResponseValue, HttpContext context)
         {
-            bool IsValidChallenge = false;
-            var QueryParam = context.Request.Query;
-            var HUB_MODE_VALUE = QueryParam[InstagramModelStrings.HUB_MODE];
-            var HUB_CHALLENGE_VALUE = QueryParam[InstagramModelStrings.HUB_CHALLENGE];
-            var HUB_VERIFY_TOKEN_VALUE = QueryParam[InstagramModelStrings.HUB_VERIFY_TOKEN];
-            string Error;
             ResponseValue = string.Empty;
-                
-            Error = InstagramModelStrings.Error_Mode_Null;
-            if (!String.IsNullOrEmpty(HUB_MODE_VALUE))
+            bool returnvalue = false;
+            
+            PubSubHubBubLite pubsub = new PubSubHubBubLite(context, this._registerParams);
+            if( pubsub.IsValid())
+            {               
+                ResponseValue = pubsub.Challenge;
+                returnvalue = true;
+            }
+            else
             {
-                Error = InstagramModelStrings.Error_Mode_INVALID; 
-                if (HUB_MODE_VALUE == InstagramModelStrings.HUB_MODE_EXPECTED)
-                {
-                    Error = InstagramModelStrings.Error_TOKEN_NULL;
-                    if (!String.IsNullOrEmpty(HUB_VERIFY_TOKEN_VALUE))
-                    {
-                        Error = InstagramModelStrings.Error_TOKEN_INVALID;
-                        if (HUB_VERIFY_TOKEN_VALUE == InstagramModelStrings.VERIFY_TOKEN_VALUE)
-                        {
-                            Error = InstagramModelStrings.Error_Challenge_NULL;
-                            if (!String.IsNullOrEmpty(HUB_CHALLENGE_VALUE))
-                            {
-                                Error = InstagramModelStrings.Error_Challenge_INVALID;
-                                Guid newGuid;
-                                if(Guid.TryParse(HUB_CHALLENGE_VALUE, out newGuid))
-                                {
-                                    IsValidChallenge = true;
-                                    ResponseValue = HUB_CHALLENGE_VALUE;
-                                }
-                            }
-                        }
-                    }
-                }
+                ResponseValue = String.Join("," , pubsub.Error);
             }
             
-            if(! IsValidChallenge){ResponseValue = Error;}
-            return IsValidChallenge;
+            return returnvalue;
         }
-
+        
+        public class PubSubHubBubLite
+        {
+            private string _qstr;
+            private string _mode;
+            private string _verifyToken;
+            private string _challenge;
+           
+            private Dictionary<string,string> Params;
+            
+            private List<string> _Error;
+            
+            private HttpContext _context;
+            
+            public string QueryString { get{return _qstr;}}
+            public string Mode { get{return _mode;}}
+            
+            public string VerifyToken { get{return _verifyToken;}}
+            public string Challenge { get{return _challenge;}}
+            
+            public List<string>Error {get {return _Error;}}
+            
+            public PubSubHubBubLite(HttpContext context, Dictionary<string,string> instanceParams){
+                _qstr = context.Request.Query.ToString();         
+                Params =  instanceParams;      
+                _Error = new List<string>();    
+                _context = context;                      
+            }
+            
+            public bool IsValid()
+            {   
+                bool ResponseValue = false;                
+                var QueryParam = _context.Request.Query;
+                this._mode = QueryParam[InstagramModelStrings.HUB_MODE];
+                this._verifyToken = QueryParam[InstagramModelStrings.HUB_VERIFY_TOKEN];
+                this._challenge = QueryParam[InstagramModelStrings.HUB_CHALLENGE];            
+            
+                if (String.IsNullOrEmpty(_mode)) { _Error.Add(InstagramModelStrings.Error_Mode_Null); }
+                if (_mode != InstagramModelStrings.HUB_MODE_EXPECTED){ _Error.Add(InstagramModelStrings.Error_Mode_INVALID);  }
+                if (String.IsNullOrEmpty(_verifyToken)){_Error.Add(InstagramModelStrings.Error_TOKEN_NULL);}
+                if (_verifyToken != InstagramModelStrings.VERIFY_TOKEN_VALUE){ _Error.Add(InstagramModelStrings.Error_TOKEN_INVALID);  }       
+                if (String.IsNullOrEmpty(_challenge)){ _Error.Add(InstagramModelStrings.Error_Challenge_NULL); }
+                
+                Guid newGuid;
+                if (Guid.TryParse(_challenge, out newGuid))
+                {
+                    ResponseValue = true;
+                }            
+                else 
+                {
+                    _Error.Add(InstagramModelStrings.Error_Challenge_INVALID);
+                }
+                
+                return ResponseValue;
+            }
+            
+        }
     }
 }

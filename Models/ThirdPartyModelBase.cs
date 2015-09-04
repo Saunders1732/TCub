@@ -14,6 +14,7 @@ namespace TCub.Models
     public class ThirdPartyModelBase
     {
         protected string _uri;
+        protected Dictionary<string,string> _registerParams;
 
         public virtual string Uri { get { return _uri; } }
 
