@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 
+
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace TCub.Controllers
@@ -26,11 +27,11 @@ namespace TCub.Controllers
             Models.InstagramModel thisModel = new Models.InstagramModel();
             if (id.ToLower() == "register")
             {
-               returnvalue = thisModel.register(Context).ToString();
+               returnvalue = thisModel.register(this.HttpContext).ToString();
             }
             else if(id.ToLower() == "registerCallBack")
             {
-                returnvalue = thisModel.Callback(Context);
+                returnvalue = thisModel.Callback(this.HttpContext);
             }
             else
             {

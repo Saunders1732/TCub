@@ -12,7 +12,7 @@ namespace TCub
 
         public Startup(IApplicationEnvironment appEnv, IHostingEnvironment env)
         {
-            configuration = new ConfigurationBuilder(appEnv.ApplicationBasePath)
+            configuration = new ConfigurationBuilder()
                 .AddJsonFile("config.json")
                 .AddUserSecrets()
                 .AddEnvironmentVariables()                
